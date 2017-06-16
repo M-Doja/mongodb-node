@@ -8,6 +8,9 @@
     "test": "mocha server/**/*.test.js",
     "test-watch": "nodemon --exec 'npm test'"
   },
+  "engines": {
+    "node": "6.10.3"
+  },
   "keywords": [],
   "author": "Micah Dunson",
   "license": "ISC",
