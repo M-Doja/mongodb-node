@@ -1,23 +1,28 @@
-var env = process.env.NODE_ENV || 'development';
-var port = process.env.PORT;
+// var env = process.env.NODE_ENV || 'development';
+// var port = process.env.PORT;
+//
+// if (env === 'development') {
+//   port = 3000;
+//   process.env.MONGODB_URI = 'mongodb://localhost:27017/TodoApp';
+// } else if (env === 'test') {
+//   port = 3000;
+//   process.env.MONGODB_URI = 'mongodb://localhost:27017/TodoAppTest';
+// }
+require('./config/config');
 
-if (env === 'development') {
-  port = 3000;
-  process.env.MONGODB_URI = 'mongodb://localhost:27017/TodoApp';
-} else if (env === 'test') {
-  port = 3000;
-  process.env.MONGODB_URI = 'mongodb://localhost:27017/TodoAppTest';
-}
-
-var express = require('express');
 const _ = require('lodash');
-var bodyParser = require('body-parser');
-var {mongoose} = require('./db/mongoose');
-var {Todo} = require('./models/todo');
-var {User} = require('./models/user');
-var {authenticate} = require('./middleware/authenticate');
+const express = require('express');
+const bodyParser = require('body-parser');
 const {ObjectID} = require('mongodb');
+
+const {mongoose} = require('./db/mongoose');
+const {Todo} = require('./models/todo');
+const {User} = require('./models/user');
+const {authenticate} = require('./middleware/authenticate');
+
 var app = express();
+const port = process.env.PORT;
+
 
 app.use(bodyParser.json());
 
